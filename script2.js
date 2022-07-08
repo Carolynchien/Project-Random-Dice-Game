@@ -181,3 +181,45 @@ const generateQuestion = (questionList) => {
   checkedAns(correctAns)
   //checking whether the player get correct ans correctly
 }
+
+const checkedAns = (correctAns) => {
+  options.querySelectorAll('li').forEach((element) => {
+    // diceBtn.disabled = true
+    element.addEventListener('click', () => {
+      element.classList.add('selected')
+      const selectedOne = document.querySelector('.selected')
+
+      console.log(selectedOne.textContent)
+      if (selectedOne.textContent === correctAns) {
+        //checking if the selected ans is the correct ans
+        question.textContent = "You've got it!!!!"
+        player = player === 0 ? 1 : 0
+        console.log('you got it')
+        console.log(`Switched player to ${player}`)
+        setTimeout(() => {
+          questionBoard.style.opacity = 0
+          diceDisplay.style.opacity = 1
+          diceBtn.disabled = false
+          restBtn.disabled = false
+        }, 1500)
+      } else {
+        question.textContent =
+          "Oops!! you didn't get it. Sending you back to the starting point"
+        setTimeout(() => {
+          questionBoard.style.opacity = 0
+          diceDisplay.style.opacity = 1
+          diceBtn.disabled = false
+          restBtn.disabled = false
+        }, 1500)
+        playerCurrent[player] = 0
+        appendDots()
+        //brring player back to the start point
+        console.log(
+          `current lose player before switching to next player${player}`
+        )
+        player = player === 0 ? 1 : 0
+        console.log(`Switched player to ${player}`)
+      }
+    })
+  })
+}
