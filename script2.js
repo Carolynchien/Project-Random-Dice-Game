@@ -85,6 +85,33 @@ const settingUp = () => {
 
 settingUp()
 
+const playAgain = () => {
+  playerCurrent[0] = 0
+  playerCurrent[1] = 0
+  player = 0
+  const divElement = document.getElementById(0)
+  divElement.append(dot1)
+  divElement.append(dot2)
+  player1winner.style.opacity = 0
+  player2winner.style.opacity = 0
+  diceBtn.disabled = false
+  diceDisplay.style.opacity = 1
+  questionBoard.style.opacity = 0
+  player1Display.style.opacity = 1
+  player2Display.style.opacity = 1
+}
+
+restBtn.addEventListener('click', () => {
+  playAgain()
+})
+
+homeBtn.addEventListener('click', () => {
+  document.location.href = 'index1.html'
+})
+
+//finished setting up board
+/* <---------------------------------------------------------------> */
+
 //Gnerating ramdon dice number
 diceBtn.addEventListener('click', () => {
   diceBtn.disabled = true
@@ -95,6 +122,12 @@ diceBtn.addEventListener('click', () => {
   console.log(randomDice)
   int = setInterval(`loopOverboxs(${randomDice})`, 600) //passing loopOverboxs funtion to loop over
 })
+
+const appendDots = () => {
+  let curplayerLoc = player === 0 ? playerCurrent[0] : playerCurrent[1]
+  const divElement = document.getElementById(curplayerLoc)
+  divElement.append(player === 0 ? dot1 : dot2)
+}
 
 let count = 0 //
 const loopOverboxs = (randomDice) => {
