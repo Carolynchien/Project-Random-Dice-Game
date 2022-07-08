@@ -119,7 +119,7 @@ diceBtn.addEventListener('click', () => {
   diceDisplay.classList.remove('hidden')
   diceDisplay.src = `dice/dice-${randomDice}.png`
   let count = 0
-  console.log(randomDice)
+  // console.log(randomDice)
   int = setInterval(`loopOverboxs(${randomDice})`, 600) //passing loopOverboxs funtion to loop over
 })
 
@@ -142,12 +142,12 @@ const loopOverboxs = (randomDice) => {
       playerCurrent[player] % 5 === 0 ||
       playerCurrent[player] % 7 === 0
     ) {
-      console.log(`before going to pool player ${player}`)
+      // console.log(`before going to pool player ${player}`)
       questionPool()
       diceBtn.disabled = false
     } else {
       diceBtn.disabled = false
-      console.log(`didn't get the question ${player}`)
+      // console.log(`didn't get the question ${player}`)
       player = player === 0 ? 1 : 0
     }
   }
@@ -179,7 +179,7 @@ const questionPool = async () => {
   )
   const questionList = await response.data
 
-  console.log(questionList)
+  // console.log(questionList)
   generateQuestion(questionList)
   // call generateQuestion passing the argument questionList gotton from API
 }
@@ -196,7 +196,7 @@ const generateQuestion = (questionList) => {
   let correctAns = questionList[random].correctAnswer
   console.log(correctAns)
   let inCorrectAns = questionList[random].incorrectAnswers
-  console.log(inCorrectAns)
+
   inCorrectAns.splice(
     Math.floor(Math.random() * (inCorrectAns.length + 1)),
     0,

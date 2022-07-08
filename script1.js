@@ -29,13 +29,11 @@ subBtn.addEventListener('click', () => {
     if (player === 0) {
       playerOneBtn.textContent = `${nameInput.value}`
       playerOneName = nameInput.value
-      // localStorage.setItem('playerOneName', playerOneBtn.textContent)
       inputBoard.style.opacity = 0
       nameInput.value = ''
     } else if (player === 1) {
       playerTwoBtn.textContent = `${nameInput.value}`
       playerTwoName = nameInput.value
-      // localStorage.setItem('playerTwoName', playerTwoBtn.textContent)
       inputBoard.style.opacity = 0
       nameInput.value = ''
     }
