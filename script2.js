@@ -84,3 +84,14 @@ const settingUp = () => {
 }
 
 settingUp()
+
+//Gnerating ramdon dice number
+diceBtn.addEventListener('click', () => {
+  diceBtn.disabled = true
+  const randomDice = Math.floor(Math.random() * 6 + 1)
+  diceDisplay.classList.remove('hidden')
+  diceDisplay.src = `dice/dice-${randomDice}.png`
+  let count = 0
+  console.log(randomDice)
+  int = setInterval(`loopOverboxs(${randomDice})`, 600) //passing loopOverboxs funtion to loop over
+})
