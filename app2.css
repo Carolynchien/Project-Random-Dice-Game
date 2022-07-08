@@ -27,6 +27,9 @@ body {
   top: 0px;
   left: 0px;
 }
+.btnHome:hover {
+  transform: scale(1.06);
+}
 
 section {
   max-width: 1000px;
@@ -54,6 +57,7 @@ section {
 div {
   width: 100px;
   height: 100px;
+  border-radius: 5px;
   background-color: white;
   border: 1px solid black;
   margin: 0;
@@ -71,9 +75,12 @@ div {
   width: 50%;
   height: 100%;
   border: none;
-  background-color: #92bc92;
+  background-color: rgb(146, 188, 146);
   pointer-events: none;
   z-index: 30;
+  font-family: 'Titan One', cursive;
+  letter-spacing: 2px;
+  font-weight: 200;
 }
 
 .dice {
@@ -81,6 +88,7 @@ div {
   position: absolute;
   top: 35%;
   left: 41%;
+  border-radius: 10px;
   z-index: 100;
 }
 
@@ -89,13 +97,18 @@ div {
   left: 39%;
   text-transform: uppercase;
   font-size: 15px;
-  border-radius: 20px;
+  border-radius: 15px;
   padding: 10px 20px;
   margin: 20px;
   background-color: white;
   background-color: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
   z-index: 100;
+}
+
+.btn:hover {
+  background-color: rgba(63, 191, 146, 0.7);
+  transform: scale(1.15);
 }
 
 .reset {
