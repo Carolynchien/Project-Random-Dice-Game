@@ -140,3 +140,44 @@ const loopOverboxs = (randomDice) => {
 
   count++
 }
+const questionPool = async () => {
+  let response = await axios.get(
+    `https://the-trivia-api.com/api/questions?categories=film_and_tv,food_and_drink,music,general_knowledge&limit=20&region=US&difficulty=easy`
+  )
+  const questionList = await response.data
+
+  console.log(questionList)
+  generateQuestion(questionList)
+  // call generateQuestion passing the argument questionList gotton from API
+}
+
+const generateQuestion = (questionList) => {
+  questionBoard.style.opacity = 1
+  diceDisplay.style.opacity = 0
+  diceBtn.disabled = true
+  restBtn.disabled = true
+
+  //generate random a question number
+  const random = Math.floor(Math.random() * questionList.length)
+  let quest = questionList[random].question
+  let correctAns = questionList[random].correctAnswer
+  console.log(correctAns)
+  let inCorrectAns = questionList[random].incorrectAnswers
+  console.log(inCorrectAns)
+  inCorrectAns.splice(
+    Math.floor(Math.random() * (inCorrectAns.length + 1)),
+    0,
+    correctAns
+  ) // put correct ans randomly into inCorrectAns array
+
+  let category = questionList[random].category
+
+  question.innerHTML = `${category}: <br> ${quest}`
+
+  options.innerHTML = `${inCorrectAns
+    .map((option, index) => `<li>${option}</li>`)
+    .join('')}`
+
+  checkedAns(correctAns)
+  //checking whether the player get correct ans correctly
+}
