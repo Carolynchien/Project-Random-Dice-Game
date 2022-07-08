@@ -11,8 +11,8 @@
 
 ## _*Description*_
 
-This is a game that player can roll the dice and the represented dot on the box will move forward according to that number each time player get.
-when the player land on a speific spot, a random question will pop up from the question pool, if the palyer doesn't get the correct answer, the current player will be suspend once.....
+This is a game that each player can roll the dice, the represented dot(icon) on the board will move forward according to that number each time the player rolls.
+when the player lands on a speific spot, a random question will pop up from the question pool, if the player doesn't answer correctly , they are sent back to the starting point.....
 
 ![Image](https://i.ytimg.com/vi/5RgH4TwHhMU/maxresdefault.jpg)
 **. ...**
@@ -27,9 +27,9 @@ when the player land on a speific spot, a random question will pop up from the q
 
 ---
 
-## _*Wireframe*_
+## _*Flowchart*_
 
-![Image](WireFrame.png)
+![Image](Flowchart.png)
 
 ---
 
@@ -42,3 +42,5 @@ when the player land on a speific spot, a random question will pop up from the q
 ## _*Credits*_
 
 #### Questions pool: [The Trivia API](https://the-trivia-api.com)
+
+#### Background Video: [Vecteezy](https://www.vecteezy.com/free-videos/cartoon-landscape)
