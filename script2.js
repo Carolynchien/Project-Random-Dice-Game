@@ -45,7 +45,6 @@ const createDiv = (num) => {
         const goLabel = document.createElement('h5')
         goLabel.textContent = 'Go'
         divElement.style.backgroundColor = 'peru'
-        // divElement.append(goLabel)
       } else {
         divElement.id = `${i}`
         divElement.textContent = `${i}`
@@ -136,7 +135,7 @@ const loopOverboxs = (randomDice) => {
   if (count === randomDice) {
     clearInterval(int)
     count = 0 //clearing count
-    //checking if the pkayer stop at the specific box which will generate question
+    //checking if the player stop at the specific box which will generate question
     if (
       playerCurrent[player] === 2 ||
       playerCurrent[player] % 5 === 0 ||
@@ -215,6 +214,13 @@ const generateQuestion = (questionList) => {
   //checking whether the player get correct ans correctly
 }
 
+const continueGame = () => {
+  questionBoard.style.opacity = 0
+  diceDisplay.style.opacity = 1
+  diceBtn.disabled = false
+  restBtn.disabled = false
+}
+
 const checkedAns = (correctAns) => {
   options.querySelectorAll('li').forEach((element) => {
     // diceBtn.disabled = true
@@ -227,31 +233,24 @@ const checkedAns = (correctAns) => {
         //checking if the selected ans is the correct ans
         question.textContent = "You've got it!!!!"
         player = player === 0 ? 1 : 0
-        console.log('you got it')
-        console.log(`Switched player to ${player}`)
+        // console.log(`Switched player to ${player}`)
         setTimeout(() => {
-          questionBoard.style.opacity = 0
-          diceDisplay.style.opacity = 1
-          diceBtn.disabled = false
-          restBtn.disabled = false
+          continueGame()
         }, 1500)
       } else {
         question.textContent =
           "Oops!! you didn't get it. Sending you back to the starting point"
         setTimeout(() => {
-          questionBoard.style.opacity = 0
-          diceDisplay.style.opacity = 1
-          diceBtn.disabled = false
-          restBtn.disabled = false
+          continueGame()
         }, 1500)
         playerCurrent[player] = 0
         appendDots()
         //brring player back to the start point
-        console.log(
-          `current lose player before switching to next player${player}`
-        )
+        // console.log(
+        //   `current lose player before switching to next player${player}`
+        // )
         player = player === 0 ? 1 : 0
-        console.log(`Switched player to ${player}`)
+        // console.log(`Switched player to ${player}`)
       }
     })
   })
