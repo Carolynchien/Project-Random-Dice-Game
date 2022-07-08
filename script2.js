@@ -95,3 +95,48 @@ diceBtn.addEventListener('click', () => {
   console.log(randomDice)
   int = setInterval(`loopOverboxs(${randomDice})`, 600) //passing loopOverboxs funtion to loop over
 })
+
+let count = 0 //
+const loopOverboxs = (randomDice) => {
+  appendDots()
+
+  if (count === randomDice) {
+    clearInterval(int)
+    count = 0 //clearing count
+    //checking if the pkayer stop at the specific box which will generate question
+    if (
+      playerCurrent[player] === 2 ||
+      playerCurrent[player] % 5 === 0 ||
+      playerCurrent[player] % 7 === 0
+    ) {
+      console.log(`before going to pool player ${player}`)
+      questionPool()
+      diceBtn.disabled = false
+    } else {
+      diceBtn.disabled = false
+      console.log(`didn't get the question ${player}`)
+      player = player === 0 ? 1 : 0
+    }
+  }
+
+  playerCurrent[player]++ //increaing current player location
+
+  //if the player get to 30 display winner
+  if (playerCurrent[player] == 30) {
+    const divElement = document.getElementById(0)
+    divElement.append(player === 0 ? dot1 : dot2)
+    diceDisplay.style.opacity = 0
+    clearInterval(int)
+    if (player === 0) {
+      player1winner.style.opacity = 1
+      player2Display.style.opacity = 0
+      diceBtn.disabled = true
+    } else {
+      player2winner.style.opacity = 1
+      player1Display.style.opacity = 0
+      diceBtn.disabled = true
+    }
+  }
+
+  count++
+}
